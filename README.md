@@ -213,7 +213,7 @@ let mailOptions = {
 --------------------------------------------
 
 ##### Finally, we will use the sendMail method:
-```json
+```
 transporter.sendMail(mailOptions, function(err, data) {
   if (err) {
     console.log("Error " + err);
