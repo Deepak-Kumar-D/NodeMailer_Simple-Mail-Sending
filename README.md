@@ -12,7 +12,7 @@ Whether you want to communicate with your users or just notify yourself when som
 First, we need to set up our Node.js boilerplate using Express. To make sure you have Node and npm installed, you can run the following commands:
 
 ```node -v```
-  npm -v
+```npm -v```
 
 If both of these commands show a version, you are good to go. Otherwise, install what is missing.
 
