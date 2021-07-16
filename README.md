@@ -10,6 +10,7 @@ Whether you want to communicate with your users or just notify yourself when som
 
 ### How to Get Started with Nodemailer?
 First, we need to set up our Node.js boilerplate using Express. To make sure you have Node and npm installed, you can run the following commands:
+
   node -v
   npm -v
 
