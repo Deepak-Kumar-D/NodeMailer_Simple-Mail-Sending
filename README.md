@@ -114,7 +114,7 @@ If you don’t have a Google Cloud Platform account, be sure to set one up as a 
 - Pick whatever you like, but we will continue with out NodemailerProject name.
 - For the location property, you can leave it as No organization.
 
-*It may take a few seconds to for the project to be set up.*
+*It may take a few seconds for the project to be set up.*
 
 --------------------------------------------
 
