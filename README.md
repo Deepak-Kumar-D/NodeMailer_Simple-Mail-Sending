@@ -16,49 +16,58 @@ node -v
 npm -v
 ```
 
-If both of these commands show a version, you are good to go. Otherwise, install what is missing.
+*If both of these commands show a version, you are good to go. Otherwise, install what is missing.*
 
 --------------------------------------------
 
 #### Create a directory for your project. We’ll use nodemailerProject:
-  mkdir nodemailerProject
+```
+mkdir nodemailerProject
+```
 
 --------------------------------------------
 
 #### Go inside the newly created directory and run:
-  npm init
-
-###### This will initialize our project with a pacakge.json file.
+```
+npm init
+```
+*This will initialize our project with a pacakge.json file.*
 
 --------------------------------------------
 
 #### Next, we will need to install Express using:
-  npm install express
+```
+npm install express
+```
 
 --------------------------------------------
 
 #### Depending which file you pointed to as your entry point (the default is index.js), open it and paste the following code:
-
-  const express = require('express')
-  const app = express()
-  const port = 3000
+```
+const express = require('express')
+const app = express()
+const port = 3000
   
-  app.listen(port, () => {
-    console.log(`nodemailerProject is listening at http://localhost:${port}`)
-  })
-
-Above is what is needed to start a simple server using Express.
+app.listen(port, () => {
+  console.log(`nodemailerProject is listening at http://localhost:${port}`)
+})
+```
+*Above is what is needed to start a simple server using Express.*
 
 --------------------------------------------
 
 ##### You can see that it is working properly by running:
-  node index.js
+```
+node index.js
+```
 
 --------------------------------------------
 
 ### How to Install Nodemailer:
 #### Install nodemailer using the following command:
-  npm install nodemailer
+```
+npm install nodemailer
+```
 
 --------------------------------------------
 
@@ -70,19 +79,20 @@ Above is what is needed to start a simple server using Express.
 --------------------------------------------
 
 #### To create a transporter object, we do the following:
-
-  let transporter = nodemailer.createTransport({
+```
+let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      type: 'OAuth2',
-      user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD,
-      clientId: process.env.OAUTH_CLIENTID,
-      clientSecret: process.env.OAUTH_CLIENT_SECRET,
-      refreshToken: process.env.OAUTH_REFRESH_TOKEN
-    }
-  });
-    
+   type: 'OAuth2',
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD,
+    clientId: process.env.OAUTH_CLIENTID,
+    clientSecret: process.env.OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN
+  }
+});
+```
+
 --------------------------------------------
 
 *✋ Pay attention, as apart from the user and the pass keys, which are your own credentials for your gmail account, the other three keys need to be retrieved after setting up OAuth.*
@@ -172,44 +182,47 @@ Don’t forget to also add the .env file you will create to .gitignore.
 --------------------------------------------
 
 ##### So, now we have this:
-
-  let transporter = nodemailer.createTransport({
+```
+let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      type: 'OAuth2',
-      user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD,
-      clientId: process.env.OAUTH_CLIENTID,
-      clientSecret: process.env.OAUTH_CLIENT_SECRET,
-      refreshToken: process.env.OAUTH_REFRESH_TOKEN
-    }
-  });
-    
+    type: 'OAuth2',
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD,
+    clientId: process.env.OAUTH_CLIENTID,
+    clientSecret: process.env.OAUTH_CLIENT_SECRET,
+    refreshToken: process.env.OAUTH_REFRESH_TOKEN
+  }
+});
+```
+
 --------------------------------------------
 
 ##### Next, we will create the mailOptions object, which holds the details of where to send the email and with what data.
-
-  let mailOptions = {
-    from: tomerpacific@gmail.com,
-    to: tomerpacific@gmail.com,
-    subject: 'Nodemailer Project',
-    text: 'Hi from your nodemailer project'
-  };
+```
+let mailOptions = {
+  from: tomerpacific@gmail.com,
+  to: tomerpacific@gmail.com,
+  subject: 'Nodemailer Project',
+  text: 'Hi from your nodemailer project'
+};
+```
 
 *This object can have many more fields and even multiple recipients.*
 
 --------------------------------------------
 
 ##### Finally, we will use the sendMail method:
+```
+transporter.sendMail(mailOptions, function(err, data) {
+  if (err) {
+    console.log("Error " + err);
+  } else {
+    console.log("Email sent successfully");
+  }
+});
+```
 
-    transporter.sendMail(mailOptions, function(err, data) {
-      if (err) {
-        console.log("Error " + err);
-      } else {
-        console.log("Email sent successfully");
-      }
-    });
-    
 --------------------------------------------
 
 ##### Run your application and you will see your inbox being populated with a new email.
