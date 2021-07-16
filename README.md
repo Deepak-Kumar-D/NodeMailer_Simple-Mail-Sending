@@ -101,7 +101,7 @@ let transporter = nodemailer.createTransport({
 
 *There are a number of ways we can overcome this obstacle (some better than others), and we will choose the one that requires us to set up a project in the Google Cloud Platform. We need to do that in order to have credentials for the OAuth security enabled by Gmail.*
 
-###### The next steps will require some configurations instead of coding, so brace yourselves.
+***The next steps will require some configurations instead of coding, so brace yourselves.***
 
 --------------------------------------------
 
@@ -160,7 +160,7 @@ We approved this URI for this specific purpose in an earlier stage.
 
 3. Click Authorize APIs
 
-*You will be presented with a screen to login to any of your Gmail accounts. Choose the one you listed as a Test user.
+*You will be presented with a screen to login to any of your Gmail accounts. Choose the one you listed as a Test user.*
 
 4. The next screen will let you know that Google still hasn’t verified this application, but this is ok since we haven’t submitted it for verification.
 Click continue.
@@ -170,7 +170,7 @@ Click continue.
 6. Once that is done, you will be redirected back to the OAuth Playground and you can see that there is an authorization code in the menu to the left.
 Click on the blue button labelled Exchange authorization code for tokens.
 
-##### The fields for the refresh token and the access token will now be filled.
+***The fields for the refresh token and the access token will now be filled.***
 
 --------------------------------------------
 
