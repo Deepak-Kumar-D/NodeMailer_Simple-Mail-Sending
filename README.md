@@ -1,6 +1,6 @@
 # NodeMailer_Simple-Mail-Sending
 
-####https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/
+(https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/)
 
 How to Use Nodemailer to Send Emails from Your Node.js Server:
 Nodemailer is a Node.js module that allows you to send emails from your server with ease. Whether you want to communicate with your users or just notify yourself when something has gone wrong, one of the options for doing so is through mail.
