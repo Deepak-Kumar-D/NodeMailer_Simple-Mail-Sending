@@ -1,9 +1,10 @@
 # NodeMailer_Simple-Mail-Sending
 
-[Reference Blog](https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/)
+[Checkout the actual blog](https://www.freecodecamp.org/news/use-nodemailer-to-send-emails-from-your-node-js-server/)
 
 How to Use Nodemailer to Send Emails from Your Node.js Server:
 Nodemailer is a Node.js module that allows you to send emails from your server with ease. Whether you want to communicate with your users or just notify yourself when something has gone wrong, one of the options for doing so is through mail.
+
 --------------------------------------------
 
 How to Get Started with Nodemailer
@@ -12,20 +13,24 @@ node -v
 npm -v
 
 If both of these commands show a version, you are good to go. Otherwise, install what is missing.
+
 --------------------------------------------
 
 Create a directory for your project. We’ll use nodemailerProject:
 mkdir nodemailerProject
+
 --------------------------------------------
 
 Go inside the newly created directory and run:
 npm init
 
 This will initialize our project with a pacakge.json file.
+
 --------------------------------------------
 
 Next, we will need to install Express using:
 npm install express
+
 --------------------------------------------
 
 Depending which file you pointed to as your entry point (the default is index.js), open it and paste the following code:
@@ -37,15 +42,18 @@ const port = 3000
 app.listen(port, () => {
   console.log(`nodemailerProject is listening at http://localhost:${port}`)
 })
+
 --------------------------------------------
 
 Above is what is needed to start a simple server using Express. You can see that it is working properly by running:
 node index.js
+
 --------------------------------------------
 
 How to Install Nodemailer:
 Install nodemailer using the following command:
 npm install nodemailer
+
 --------------------------------------------
 
 Nodemailer’s API is pretty simple and requires us to do the following:
@@ -53,6 +61,7 @@ Nodemailer’s API is pretty simple and requires us to do the following:
 Create a Transporter object
 Create a MailOptions Object
 Use the Transporter.sendMail method
+
 --------------------------------------------
 
 To create a transporter object, we do the following:
@@ -68,6 +77,7 @@ let transporter = nodemailer.createTransport({
         refreshToken: process.env.OAUTH_REFRESH_TOKEN
       }
     });
+    
 --------------------------------------------
 
 ✋ Pay attention, as apart from the user and the pass keys, which are your own credentials for your gmail account, the other three keys need to be retrieved after setting up OAuth.
@@ -76,10 +86,12 @@ As we stated in the beginning of this article, we will be using Gmail for our ma
 There are a number of ways we can overcome this obstacle (some better than others), and we will choose the one that requires us to set up a project in the Google Cloud Platform. We need to do that in order to have credentials for the OAuth security enabled by Gmail.
 
 The next steps will require some configurations instead of coding, so brace yourselves.
+
 --------------------------------------------
 
 Google Cloud Platform Configurations:
 If you don’t have a Google Cloud Platform account, be sure to set one up as a prerequisite.
+
 --------------------------------------------
 
 Once you have that set up, create a new project by clicking on the dropdown menu in the upper left corner.
@@ -89,24 +101,29 @@ Pick whatever you like, but we will continue with out NodemailerProject name.
 For the location property, you can leave it as No organization.
 
 It may take a few seconds to for the project to be set up.
+
 --------------------------------------------
 
 Open up the navigation menu by clicking the three dashed lines in the top left corner and select APIs and Services:
 In order to be able to use Nodemailer and Gmail we will have to use OAuth2.
 If you aren’t familiar with OAuth, it is a protocol for authentication.
+
 --------------------------------------------
 
 First we will have to configure our OAuth Consent Screen:
 If you are not a G-Suite member, the only option available will be External for User Type.
+
 --------------------------------------------
 
 After clicking create, the next screen requires us to fill out the application’s information (our server):
 Fill in your email in the User support email field and also in the Developer contact information field.
 Clicking Save and Continue will bring us to the Scopes phase of this configuration.
 Skip this phase, as it is not relevant for us, and head into the Test Users phase.
+
 --------------------------------------------
 
 Here, add yourself as a user and click Save and continue.
+
 --------------------------------------------
 
 How to Configure Your OAuth Settings:
@@ -117,7 +134,9 @@ In the Application type dropdown menu, choose Web Application.
 
 In the Authorized Redirect URIs section, make sure to add OAuth2 Playground (https://developers.google.com/oauthplayground) as we will use it to get one of the keys that was mentioned in the beginning of this article.
 
-After clicking create, you will be presented with your client id and client secret. Keep these to yourself and never expose them in any way, shape, or form.
+After clicking create, you will be presented with your client id and client secret.
+Keep these to yourself and never expose them in any way, shape, or form.
+
 --------------------------------------------
 
 Get Your OAuth Refresh Token:
@@ -141,11 +160,14 @@ Click continue.
 Click on the blue button labelled Exchange authorization code for tokens.
 
 The fields for the refresh token and the access token will now be filled.
+
 --------------------------------------------
 
 Back to the Server:
 After doing all of those configurations, we can return to our application and input all that data into the transporter creation.
-In order to keep all your credentials private, you can use the dotenv package. Don’t forget to also add the .env file you will create to .gitignore.
+In order to keep all your credentials private, you can use the dotenv package.
+Don’t forget to also add the .env file you will create to .gitignore.
+
 --------------------------------------------
 
 So, now we have this:
@@ -161,6 +183,7 @@ let transporter = nodemailer.createTransport({
         refreshToken: process.env.OAUTH_REFRESH_TOKEN
       }
     });
+    
 --------------------------------------------
 
 Next, we will create the mailOptions object, which holds the details of where to send the email and with what data.
@@ -172,6 +195,7 @@ let mailOptions = {
       text: 'Hi from your nodemailer project'
     };
 This object can have many more fields and even multiple recipients, but we won’t go into that here.
+
 --------------------------------------------
 
 Finally, we will use the sendMail method:
@@ -183,6 +207,7 @@ transporter.sendMail(mailOptions, function(err, data) {
         console.log("Email sent successfully");
       }
     });
+    
 --------------------------------------------
 
-Run your application and you will see your inbox being populated with a new email.
+####Run your application and you will see your inbox being populated with a new email.
