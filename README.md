@@ -84,11 +84,11 @@ let transporter = nodemailer.createTransport({
 
 *✋ Pay attention, as apart from the user and the pass keys, which are your own credentials for your gmail account, the other three keys need to be retrieved after setting up OAuth.*
 
-*As we stated in the beginning of this article, we will be using Gmail for our mail sending needs. As you may have guessed, Gmail has a high level of security when it comes to mail sent by/to a user’s account.
+*As we stated in the beginning of this article, we will be using Gmail for our mail sending needs. As you may have guessed, Gmail has a high level of security when it comes to mail sent by/to a user’s account.*
 
-There are a number of ways we can overcome this obstacle (some better than others), and we will choose the one that requires us to set up a project in the Google Cloud Platform. We need to do that in order to have credentials for the OAuth security enabled by Gmail.*
+*There are a number of ways we can overcome this obstacle (some better than others), and we will choose the one that requires us to set up a project in the Google Cloud Platform. We need to do that in order to have credentials for the OAuth security enabled by Gmail.*
 
-The next steps will require some configurations instead of coding, so brace yourselves.
+###### The next steps will require some configurations instead of coding, so brace yourselves.
 
 --------------------------------------------
 
@@ -101,19 +101,19 @@ If you don’t have a Google Cloud Platform account, be sure to set one up as a 
 - Pick whatever you like, but we will continue with out NodemailerProject name.
 - For the location property, you can leave it as No organization.
 
-*It may take a few seconds to for the project to be set up.
+*It may take a few seconds to for the project to be set up.*
 
 --------------------------------------------
 
 ##### Open up the navigation menu by clicking the three dashed lines in the top left corner and select APIs and Services:
 In order to be able to use Nodemailer and Gmail we will have to use OAuth2.
 
-*If you aren’t familiar with OAuth, it is a protocol for authentication.
+*If you aren’t familiar with OAuth, it is a protocol for authentication.*
 
 --------------------------------------------
 
 ##### First we will have to configure our OAuth Consent Screen:
--If you are not a G-Suite member, the only option available will be External for User Type.
+- If you are not a G-Suite member, the only option available will be External for User Type.
 
 --------------------------------------------
 
@@ -133,7 +133,7 @@ In this phase will we create OAuth credentials to be used with Nodemailer.
 - In the Authorized Redirect URIs section, make sure to add OAuth2 Playground (https://developers.google.com/oauthplayground) as we will use it to get one of the keys that was mentioned in the beginning of this article.
 - After clicking create, you will be presented with your client id and client secret.
 
-*Keep these to yourself and never expose them in any way, shape, or form.
+*Keep these to yourself and never expose them in any way, shape, or form.*
 
 --------------------------------------------
 
@@ -193,13 +193,13 @@ let mailOptions = {
       text: 'Hi from your nodemailer project'
     };
 
-*This object can have many more fields and even multiple recipients.
+*This object can have many more fields and even multiple recipients.*
 
 --------------------------------------------
 
 ##### Finally, we will use the sendMail method:
 
-  transporter.sendMail(mailOptions, function(err, data) {
+    transporter.sendMail(mailOptions, function(err, data) {
       if (err) {
         console.log("Error " + err);
       } else {
